@@ -26,7 +26,7 @@ const Questions = ({ questions }) => {
               className="text-2xl mb-2"
             />
             <details>
-              <summary>Show Answer</summary>
+              <summary>View Solution</summary>
               <pre><code>{question.answer}</code></pre>
             </details>
           </li>
