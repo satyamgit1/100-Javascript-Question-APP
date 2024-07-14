@@ -1,0 +1,34 @@
+[
+    {
+      "id": 1,
+      "question": "Write a function to sort an array of numbers in ascending order.",
+      "answer": "const sortAscending = (arr) => {\n  return arr.sort((a, b) => a - b);\n};\nconsole.log(sortAscending([5, 3, 10, 8]));"
+    },
+    {
+      "id": 2,
+      "question": "Explain closures in JavaScript.",
+      "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
+    },
+    {
+      "id": 3,
+      "question": "Write a function to sort an array of numbers in ascending order.",
+      "answer": "const sortAscending = (arr) => {\n  return arr.sort((a, b) => a - b);\n};\nconsole.log(sortAscending([5, 3, 10, 8]));"
+    },
+    {
+      "id": 4,
+      "question": "Explain closures in JavaScript.",
+      "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
+    },
+    {
+      "id": 5,
+      "question": "Write a function to sort an array of numbers in ascending order.",
+      "answer": "const sortAscending = (arr) => {\n  return arr.sort((a, b) => a - b);\n};\nconsole.log(sortAscending([5, 3, 10, 8]));"
+    },
+    {
+      "id": 6,
+      "question": "Explain closures in JavaScript.",
+      "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
+    }
+  ]
+  
+  
