@@ -1,34 +1,17 @@
 [
-    {
-      "id": 1,
-      "question": "Write a function to sort an array of numbers in ascending order.",
-      "answer": "const sortAscending = (arr) => {\n  return arr.sort((a, b) => a - b);\n};\nconsole.log(sortAscending([5, 3, 10, 8]));"
-    },
-    {
-      "id": 2,
-      "question": "Explain closures in JavaScript.",
-      "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
-    },
-    {
-      "id": 3,
-      "question": "Write a function to sort an array of numbers in ascending order.",
-      "answer": "const sortAscending = (arr) => {\n  return arr.sort((a, b) => a - b);\n};\nconsole.log(sortAscending([5, 3, 10, 8]));"
-    },
-    {
-      "id": 4,
-      "question": "Explain closures in JavaScript.",
-      "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
-    },
-    {
-      "id": 5,
-      "question": "Write a function to sort an array of numbers in ascending order.",
-      "answer": "const sortAscending = (arr) => {\n  return arr.sort((a, b) => a - b);\n};\nconsole.log(sortAscending([5, 3, 10, 8]));"
-    },
-    {
-      "id": 6,
-      "question": "Explain closures in JavaScript.",
-      "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
-    }
-  ]
-  
-  
+  {
+    "id": 1,
+    "question": "Programming Question: Hash Tag Generator",
+    "answer": "You are required to implement a function generateHash that generates a hash tag from a given input string. The hash tag should be constructed as follows:\n\nThe input string should be converted to a hash tag format, where each word is capitalized and concatenated together without spaces.\nIf the length of the input string is greater than 280 characters or if the input string is empty or contains only whitespace, the function should return false.\nOtherwise, the function should return the generated hash tag prefixed with #.\n\nconst generateHash = (str) => {\n  if (str.length > 280 || str.trim().length === 0) {\n    return false;\n  }\n\n  str = str.split(\" \");\n  str = str.map((currElement) => currElement.replace(currElement[0], currElement[0].toUpperCase()));\n  str = `#${str.join(\"\")}`;\n  return str;\n};\n\nconsole.log(generateHash(\"my name is Satyam Singh\"));"
+  },
+  {
+    "id": 2,
+    "question": "Explain closures in JavaScript.",
+    "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
+  },
+  {
+    "id": 3,
+    "question": "Write a function called countChar that takes two parameters, a string and a character to count",
+    "answer": "function countChar(str, char) {\n  // Convert the input string and specified character to lowercase\n  str = str.toLowerCase();\n  char = char.toLowerCase();\n  let count = 0;\n\n  // Iterate through each character in the string\n  for (let i = 0; i < str.length; i++) {\n    // Check if the current character matches the specified character\n    if (str.charAt(i) === char) {\n      // Increment count if the characters match\n      count++;\n    }\n  }\n\n  // Return the total count of occurrences\n  return count;\n}\n\n// Test the function with an example\nconsole.log(countChar(\"MissIssippi\", \"I\"));\n// Output: 4"
+  }
+]
