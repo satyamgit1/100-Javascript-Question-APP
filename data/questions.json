@@ -12,6 +12,37 @@
   {
     "id": 3,
     "question": "Write a function called countChar that takes two parameters, a string and a character to count",
-    "answer": "function countChar(str, char) {\n  // Convert the input string and specified character to lowercase\n  str = str.toLowerCase();\n  char = char.toLowerCase();\n  let count = 0;\n\n  // Iterate through each character in the string\n  for (let i = 0; i < str.length; i++) {\n    // Check if the current character matches the specified character\n    if (str.charAt(i) === char) {\n      // Increment count if the characters match\n      count++;\n    }\n  }\n\n  // Return the total count of occurrences\n  return count;\n}\n\n// Test the function with an example\nconsole.log(countChar(\"MissIssippi\", \"I\"));\n// Output: 4"
-  }
+    "answer": " // Constraints: // - The function should be case-sensitive. \n - The function should handle both lowercase and uppercase characters.//\n - The character parameter can be any printable ASCII character. \nfunction countChar(str, char) {\n  // Convert the input string and specified character to lowercase\n  str = str.toLowerCase();\n  char = char.toLowerCase();\n  let count = 0;\n\n  // Iterate through each character in the string\n  for (let i = 0; i < str.length; i++) {\n    // Check if the current character matches the specified character\n    if (str.charAt(i) === char) {\n      // Increment count if the characters match\n      count++;\n    }\n  }\n\n  // Return the total count of occurrences\n  return count;\n}\n\n// Test the function with an example\nconsole.log(countChar(\"MissIssippi\", \"I\"));\n// Output: 4"
+  },
+  {
+    "id": 4,
+    "question": "Determine the type of triangle based on the lengths of its sides",
+    "answer": "Function: checkTriangleType\nDescription: Determines the type of triangle based on the lengths of its sides.\nParameters:\n  - side1: Length of the first side of the triangle.\n  - side2: Length of the second side of the triangle.\n  - side3: Length of the third side of the triangle.\nReturns: A string indicating the type of triangle: \"equilateral\", \"isosceles\", or \"scalene\"\n\nconst checkTriangleType = (a, b, c) => {\n  if (a === b && b === c && a === c) {\n    return \"equilateral\";\n  }\n  if (a === b || b === c || a === c) {\n    return \"isosceles\";\n  }\n  return \"scalene\";\n}; \nconsole.log(checkTriangleType(3, 3, 3)); // Output: equilateral \nconsole.log(checkTriangleType(3, 4, 3)); // Output: isosceles"
+  },
+  {
+    "id": 5,
+    "question": "Write a function to sort an array of numbers in ascending order",
+    "answer": "Requirements: \\n- The function should take an array of numbers as input. \\n- It should return a new array with the numbers sorted in ascending order.\\n- The original array should remain unchanged.\\n-  const sortAscending =(arr) => \\n{return arr.sort((a, b) => a-b) \\n console.log(sortAscending([5, 3, 10, 8])); \\n// Output: [3, 5, 8, 10]"
+  },
+  {
+    "id": 6,
+    "question": "Write a function to determine whether a given string is a palindrome or not.",
+    "answer": "Function: isPalindrome\nDescription: Determines whether a given string is a palindrome.\nParameters: \n- str: The input string to be checked.\nReturns: Boolean true if the input string is a palindrome, otherwise false.\n\nconst isPalindrome = (str) => {\n  str = str.toLowerCase().replace(/\\W/g, '');\n  let reversedStr = str.split('').reverse().join('');\n  return reversedStr === str;\n};\n\n// Test cases:\nconsole.log(isPalindrome('A man, a plan, a canal, Panama')); // Output: true\nconsole.log(isPalindrome('racecar')); // Output: true\nconsole.log(isPalindrome('hello')); // Output: false\n\n// Constraints:\n// - The input string may contain letters, digits, spaces, punctuation, and special characters.\n// - The function should be case-insensitive, treating 'Racecar' and 'racecar' as the same.\n// - Ignore spaces, punctuation, and special characters when determining if a string is a palindrome.\n// - The function should return true if the input string is a palindrome and false otherwise."
+  },
+  {
+    "id": 7,
+    "question": "Write a function findMax that takes an array of numbers as input and returns the maximum number in the array.",
+    "answer": "Function: findMax\nDescription: Finds the maximum number in an array of numbers.\nParameters: \n- numbers: An array of numbers.\nReturns: The maximum number found in the array, or undefined if the input is not an array or empty.\n\nfunction findMax(numbers) {\n    if (!Array.isArray(numbers) || numbers.length === 0) {\n        return undefined; // Handle edge cases where input is not an array or empty\n    }\n\n    let max = numbers[0]; // Initialize max with the first element of the array\n    for (let i = 1; i < numbers.length; i++) {\n        if (numbers[i] > max) {\n            max = numbers[i]; // Update max if current element is greater\n        }\n    }\n    return max;\n}\n\n// Example usage:\nconsole.log(findMax([1, 5, 3, 9, 21])); // Output: 21\nconsole.log(findMax([-10, -5, -3, -9, -2])); // Output: -2\nconsole.log(findMax([])); // Output: undefined"
+  },
+  {
+    "id": 8,
+    "question": "Write a function factorial that takes a non-negative integer num as input and returns its factorial.",
+    "answer": "Function: factorial\nDescription: Calculates the factorial of a non-negative integer.\nParameters: \n- num: A non-negative integer for which factorial is to be calculated.\nReturns: The factorial of num, which is the product of all positive integers less than or equal to num.\n\nconst factorial = (num) => {\n  let fact = 1;\n  for (let i = 1; i <= num; i++) {\n    fact = fact * i;\n  }\n  return fact;\n};\n\nconsole.log(factorial(5)); // Output: 120\n\n\nFunction: factorial2\nDescription: Calculates the factorial of a non-negative integer using recursion.\nParameters: \n- num: A non-negative integer for which factorial is to be calculated.\nReturns: The factorial of num, which is the product of all positive integers less than or equal to num.\n\nfunction factorial2(num) {\n  // Base case: if num is 0, return 1\n  if (num === 0) {\n    return 1;\n  }\n  // Recursive case: multiply num by the factorial of num - 1\n  else {\n    return num * factorial2(num - 1);\n  }\n}\n\nconsole.log(factorial2(5)); // Output: 120"
+  },
+  {
+    "id": 9,
+    "question": "Write a function called calculateAverage that takes an array of numbers as input and returns the average of those numbers.",
+    "answer": "Function: calculateAverage\nDescription: Calculates the average of an array of numbers.\nParameters: \n- numbers: An array of numbers for which the average is to be calculated.\nReturns: The average of the numbers in the input array.\n\nconst calculateAverage = (numbers) => {\n    // Check if the input array is empty\n    if (numbers.length === 0) {\n        return 0; // If empty, return 0 to avoid division by zero\n    }\n    \n    let sum = 0;\n    // Loop through the array to calculate the sum of all numbers\n    for (let i = 0; i < numbers.length; i++) {\n        sum = sum +  numbers[i];\n    }\n    \n    // Calculate the average by dividing the sum by the number of elements\n    return sum / numbers.length;\n};\n\n// Example usage:\nconsole.log(calculateAverage([1, 2, 3, 4, 5])); // Output: 3\nconsole.log(calculateAverage([10, 20, 30])); // Output: 20"
+  } 
+  
 ]
