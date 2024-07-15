@@ -3,7 +3,7 @@ import SparklesText from './magicui/SparklesText'; // Adjust the path as per you
 
 const Questions = ({ questions }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const questionsPerPage = 3;
+  const questionsPerPage = 10;
 
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;

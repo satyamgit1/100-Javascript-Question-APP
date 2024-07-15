@@ -43,6 +43,255 @@
     "id": 9,
     "question": "Write a function called calculateAverage that takes an array of numbers as input and returns the average of those numbers.",
     "answer": "Function: calculateAverage\nDescription: Calculates the average of an array of numbers.\nParameters: \n- numbers: An array of numbers for which the average is to be calculated.\nReturns: The average of the numbers in the input array.\n\nconst calculateAverage = (numbers) => {\n    // Check if the input array is empty\n    if (numbers.length === 0) {\n        return 0; // If empty, return 0 to avoid division by zero\n    }\n    \n    let sum = 0;\n    // Loop through the array to calculate the sum of all numbers\n    for (let i = 0; i < numbers.length; i++) {\n        sum = sum +  numbers[i];\n    }\n    \n    // Calculate the average by dividing the sum by the number of elements\n    return sum / numbers.length;\n};\n\n// Example usage:\nconsole.log(calculateAverage([1, 2, 3, 4, 5])); // Output: 3\nconsole.log(calculateAverage([10, 20, 30])); // Output: 20"
-  } 
+  },
+  {
+    "id": 10,
+    "question": "Write a function arraysAreEqual that takes two arrays arr1 and arr2 as input and returns true if the arrays are equal (i.e., contain the same elements in the same order), and false otherwise.",
+    "answer": "Function: arraysAreEqual\nDescription: Checks if two arrays are equal by comparing their elements in order.\nParameters: \n- arr1: The first array to compare.\n- arr2: The second array to compare.\nReturns: A boolean value indicating whether the arrays are equal.\n\n// Function definition\nfunction arraysAreEqual(arr1, arr2) {\n    // Check if the arrays have the same length\n    if (arr1.length !== arr2.length) {\n        return false;\n    }\n\n    // Compare each element of the arrays\n    for (let i = 0; i < arr1.length; i++) {\n        // If any elements are not equal, return false\n        if (arr1[i] !== arr2[i]) {\n            return false;\n        }\n    }\n\n    // If all elements are equal, return true\n    return true;\n}\n\n// Example usage:\nconsole.log(arraysAreEqual([1, 2, 31], [1, 2, 31])); // Output: true\nconsole.log(arraysAreEqual([1, 2, 31], [1, 2, 41])); // Output: false\nconsole.log(arraysAreEqual([], [])); // Output: true"
+  },
+  {
+    "id": 11,
+    "question": "Write a function that takes a number as input and returns the sum of its digits.",
+    "answer": "Function: sumOfDigits\nDescription: Calculates the sum of the digits of a given number.\nParameters: \n- num: The input number whose digits are to be summed.\nReturns: The sum of the digits of the input number.\n\nconst sumOfDigits = (num) => {\n    let sum = 0;\n    while (num != 0) {\n        let digit = num % 10;\n        sum = sum + digit;\n        num = Math.floor(num / 10);\n    }\n    return sum;\n};\n\n// Example usage:\nconsole.log(sumOfDigits(1234)); // Output: 10\nconsole.log(sumOfDigits(4321)); // Output: 10\nconsole.log(sumOfDigits(123456)); // Output: 21\n\n// Constraints:\n// - The input number will always be a positive integer.\n// - The input number can have multiple digits.\n// - The output should be the sum of all the digits in the input number.\n\n// Homework:\n// This function calculates the sum of digits without converting the number to a string."
+  },
+  {
+    "id": 12,
+    "question": "Write a function that takes an array of integers as input and removes any duplicate elements, returning a new array with only the unique elements.",
+    "answer": "Function: removeDuplicates\nDescription: Removes duplicate elements from an array of integers and returns a new array with only unique elements.\n\n1st Method to Remove Duplicates:\n\nconst removeDuplicates = (arr) => {\n    return [...new Set(arr)];\n};\n\n2nd Method to Remove Duplicates (In-Place):\n\nconst removeDuplicatesInPlace = (arr) => {\n    for (let i = 0; i < arr.length; i++) {\n        for (let j = i + 1; j < arr.length;) {\n            if (arr[i] === arr[j]) {\n                arr.splice(j, 1); // Remove the duplicate element j = which element and 1 = how many elements to remove\n            } else {\n                j++; // Move to the next element\n            }\n        }\n    }\n    return arr;\n};\n\n// Example usage:\nconsole.log(removeDuplicates([1, 2, 3, 4])); // Output: [1, 2, 3, 4]\nconsole.log(removeDuplicates([])); // Output: []\nconsole.log(removeDuplicates([1, 2, 3, 2, 1, 4])); // Output: [1, 2, 3, 4]\nconsole.log(removeDuplicates([5, 6, 7, 7, 8, 8, 9])); // Output: [5, 6, 7, 8, 9]\n\n// Constraints:\n// - The input array may contain both positive and negative integers.\n// - The input array may be empty.\n// - The output array should retain the original order of elements."
+  },
+  {
+    "id": 13,
+    "question": "Write a function that takes a string as input and returns the count of vowels in that string. Consider 'a', 'e', 'i', 'o', and 'u' as vowels (both lowercase and uppercase).",
+    "answer": "Function: countVowels\nDescription: Counts the number of vowels in a given string, considering both lowercase and uppercase vowels ('a', 'e', 'i', 'o', 'u').\n\nconst countVowels = (str) => {\n    let vowels = [\"a\", \"e\", \"i\", \"o\", \"u\"];\n    let arr = str.split(\"\");\n    let count = 0;\n    for (let char of arr) {\n        if (vowels.includes(char.toLowerCase())) {\n            count++;\n        }\n    }\n    return count;\n};\n\n// Example usage:\nconsole.log(countVowels(\"Helloo world\")); // Output: 4\nconsole.log(countVowels(\"ThE quIck brOwn fOx\")); // Output: 5\nconsole.log(countVowels(\"Brrrp\")); // Output: 0\n\n// Constraints:\n// - The input string may contain letters in both uppercase and lowercase.\n// - The output should be a non-negative integer representing the count of vowels in the input string."
+  },
+  {
+    "id": 14,
+    "question": "Write a function called isPowerOfTwo that takes an integer num as input and returns true if num is a power of two, and false otherwise.",
+    "answer": "Function: isPowerOfTwo\nDescription: Determines whether a given integer is a power of two.\n\nconst isPowerOfTwo = (num) => {\n    for (let i = 1; i <= num; i++) {\n        if (2 ** i === num) {\n            return true;\n        }\n    }\n    return false;\n};\n\n// Example usage:\nconsole.log(isPowerOfTwo(8)); // Output: true\nconsole.log(isPowerOfTwo(7)); // Output: false\n\n// Using bitwise operators:\n// const isPowerOfTwo = (num) => {\n//     return num > 0 && (num & (num - 1)) === 0;\n// };\n// console.log(isPowerOfTwo(8)); // Output: true\n// console.log(isPowerOfTwo(7)); // Output: false\n\n// Notes:\n// - The input num will be a positive integer.\n// - Zero (0) and negative integers are not considered powers of two.\n// - The function should return true if the given number is a power of 2, and false otherwise.\n\n// We can solve it using bitwise operators too, but it's your chance to do it and let me know in the comment section."
+  },
+  {
+    "id": 15,
+    "question": "Write a function to calculate the sum of squares of all elements in an array. For example, given the array [1, 2, 3], the function should return 14 because 1*1 + 2*2 + 3*3 = 1 + 4 + 9 = 14.",
+    "answer": "Function: sumOfSquares\nDescription: Calculates the sum of squares of all elements in an array.\n\nfunction sumOfSquares(arr) {\n  let sum = 0;\n  for (let i = 0; i < arr.length; i++) {\n    sum += arr[i] * arr[i];\n  }\n  return sum;\n}\n\n// Example usage:\nconsole.log(sumOfSquares([1, 2, 3])); // Output: 14\n\n// Constraints:\n// - The input array may contain both positive and negative integers.\n// - The input array may be empty, in which case the function should return 0.\n// - The function should handle large arrays efficiently."
+  },
+  {
+    "id": 16,
+    "question": "Write a function findMin that takes an array of numbers as input and returns the minimum value found in the array.",
+    "answer": "Function: findMin\nDescription: Finds the minimum value in an array of numbers.\n\nfunction findMin(numbers) {\n    // Check if the array is empty\n    if (numbers.length === 0) {\n        return undefined; // Return undefined for an empty array\n    }\n\n    let min = numbers[0]; // Initialize min with the first element of the array\n\n    // Iterate through the array to find the minimum value\n    for (let i = 1; i < numbers.length; i++) {\n        if (numbers[i] < min) {\n            min = numbers[i]; // Update min if the current element is smaller\n        }\n    }\n\n    return min; // Return the minimum value found\n}\n\n// Example usage:\nconsole.log(findMin([5, 10, 2, 8])); // Output: 2\nconsole.log(findMin([5, -3, 0, 12, -71])); // Output: -71\nconsole.log(findMin([])); // Output: undefined (or any suitable message for empty array)\n\n// Constraints:\n// - The input array may contain both positive and negative integers.\n// - The input array may be empty.\n// - The input array may contain duplicate values.\n\n// Note:\n// Ensure the function handles edge cases gracefully, such as an empty input array."
+  },
+  {
+    "id": 17,
+    "question": "Write functions to convert a string to camelCase and snake_case.",
+    "answer": "Coding Challenge: Convert a string to camelCase & snake_case.\n\n// Function to convert a string to camelCase\nconst toCamelCase = (str) => {\n  str = str.trim().split(\" \");\n\n  str = str.map((curElement, index) => {\n    if (index === 0) {\n      return curElement.toLowerCase();\n    } else {\n      return (\n        curElement.charAt(0).toUpperCase() + curElement.slice(1).toLowerCase()\n      );\n    }\n  });\n  return str.join(\"\");\n};\n\n// Example usage:\nconsole.log(toCamelCase(\"hello world thApa\")); // Output: helloWorldThapa\n\n// Function to convert a string to snake_case\nconst toSnakeCase = (str) => {\n  return str.trim().toLowerCase().replace(/\\s+/g, \"_\");\n};\n\n// Example usage:\nconsole.log(toSnakeCase(\"hello world thApa\")); // Output: hello_world_thapa\n\n// Constraints:\n// - The input string may contain letters in both uppercase and lowercase.\n// - The input string may contain spaces.\n// - The functions should handle leading and trailing spaces in the input string.\n// - The output should be a string in camelCase or snake_case format."
+  },
+  {
+    "id": 18,
+    "question": "Write a function to check if a character is uppercase or lowercase.",
+    "answer": "// Coding Challenge\n// : Write a function to check if a character is uppercase or lowercase.\n// Constraints:\n// The input char will be a single character.\n// The character can be any printable ASCII character.\n// You can assume that the input will always be a string of length 1.\n\n\n// Notes:\n// Ensure that the function correctly identifies uppercase characters based on their ASCII values.\n// Optimize the function to handle edge cases efficiently.\n\n// 1st method\n\nconst isUpperCase = (char) =>{\n    if(char.charCodeAt(0) >=65 && char.charCodeAt(0) <=90){\n        return true;\n    }\n    return false;\n}\n\n// 2nd method\n\nconst isLowerCase = (char) => {\n    return char === char.toLowerCase();\n}\n\n\n\n// The ASCII values for uppercase letters range from 65 to 90,\n//  while the ASCII values for lowercase letters range from 97 to 122.\n\n// Example usage:\nconsole.log(isUpperCase(\"s\")); // Output: false\nconsole.log(isLowerCase(\"s\")); // Output: true\n"
+  },
+  {
+    "id": 19,
+    "question": "Write a function to check if a given string starts with a specific substring.",
+    "answer": "//   Coding Challenge\n// 19: Write a function to check if a given string starts with a specific substring.\n \n//  @param {string} str - A string (e.g., \"Hello world\").\n//  @param {string} substr - A substring to check if it starts the given string (e.g., \"Hello\").\n//  @returns {boolean} - true if the given string starts with the specified substring, otherwise false.\n \n\nfunction startsWith(str, substr) {\n    // Loop through the length of the substring\n    for (let i = 0; i < substr.length; i++) {\n        // Check if the characters match\n        if (str[i] !== substr[i]) {\n            return false; // If any character doesn't match, return false\n        }\n    }\n    return true; // If all characters match, return true\n}\n\n// 2nd method \n\n// // const startsWith = (str,substr) =>{\n// //  return str.startsWith(substr);\n// }\n\n// 3rd method \n// const startsWith = (str,substr) =>{\n//     return str.slice(0, substr.length) === substr;\n//    }\n   \n\nconsole.log(startsWith(\"Hello world\", \"Hello\")); // Output: true\nconsole.log(startsWith(\"Hello world\", \"hello\")); // Output: false\n"
+  },
+  {
+    "id": 20,
+    "question": "Write a function to reverse a string without using any built-in methods or libraries.",
+    "answer": "// *\n//* Coding Challenge\n//*-\n//?20. Write a function to reverse a string without using any built-in methods or libraries. The function should take a string as input and return the reversed string.\n// Example usage:\n\n// 1st method\n\n// const reverseString = (str) =>{\n//     let revstr = \"\";\n//     for(let i=str.length; i>=0; i--){\n//      revstr  = revstr + str.charAt(i);\n\n//     }\n//     return revstr;\n   \n// }\n\n// console.log(reverseString(\"hello\")); // Output: olleH\n\n\n//  2nd method\nconst reverseString = (str) => {\n    // Convert the string to an array of characters\n    let charArray = str.split(\"\");\n    // Reverse the array\n    charArray.reverse();\n    // Join the array back into a string\n    return charArray.join(\"\");\n}\n\nconsole.log(reverseString(\"hello\")); // Output: olleh\n"
+  },
+  {
+    "id": 21,
+    "question": "Write a function called calculateMean that takes an array of numbers as input and returns the mean (average) of those numbers.",
+    "answer": "// Coding Challenge\n// Write a function called calculateMean that takes an array of numbers as input and returns the mean (average) of those numbers.\n// In math, the mean is the average of a set of numbers, or the numeric value that represents the center of a collection of numbers.\n// Constraints:\n// - The input array may contain positive and negative integers.\n// - The input array may be empty. If it is empty, the function should return 0.\n\nconst calculateMean = (arr) => {\n    if (arr.length === 0) {\n        return 0;\n    }\n    \n    // let sum = 0;\n    // for (let num of arr) {\n    //     sum += num;\n    // }\n    let sum = arr.reduce((acum,curElem) => acum + curElem,0);\n    console.log(sum);\n    return sum / arr.length;\n}\n\nconsole.log(calculateMean([1, 2, 3, 4, 5])); // Output: 3\nconsole.log(calculateMean([10, 20, 30])); // Output: 20\nconsole.log(calculateMean([-1, 0, 1])); // Output: 0\nconsole.log(calculateMean([])); // Output: 0\n"
+  },
+  {
+    "id": 22,
+    "question": "Write a Javascript function named findMedian(arr) that takes an array of numbers as input and returns the median value. If the array has an even number of elements, return the average of the two middle values.",
+    "answer": "// Coding Challenge\n// Write a Javascript function named findMedian(arr) that takes an array of numbers as input and returns the median value. If the array has an even number of elements, return the average of the two middle values.\n\nconst findMedian = (arr) => {\n    // Step 1: Sort the array\n    arr.sort((a, b) => a - b);\n\n    // Step 2: Check if the array length is odd or even\n    const length = arr.length;\n    const middleIndex = Math.floor(length / 2);\n\n    // Step 3: Calculate median based on array length\n    if (length % 2 === 0) {\n        // Step 4: For even length array\n        return (arr[middleIndex - 1] + arr[middleIndex]) / 2;\n    } else {\n        // Step 5: For odd length array\n        return arr[middleIndex];\n    }\n}\n\nconsole.log(findMedian([15, 3, 9, 1, 71])); // Output: 9\nconsole.log(findMedian([2, 4, 6, 81])); // Output: 5\nconsole.log(findMedian([1, 3, 5, 7, 9, 11])); // Output: 6\n"
+  },
+  {
+    "id": 23,
+    "question": "Write a function countOccurrences(numbers) that counts the occurrences of each element in an array.",
+    "answer": "// Coding Challenge\n// Write a function countOccurrences(numbers) that counts the occurrences of each element in an array.\n\nfunction countOccurrences(numbers) {\n    const counts = {}; // Create an empty object to store the counts of each element\n    \n    // Iterate through each number in the array\n    for (let element of numbers) {\n      counts[element] = (counts[element] || 0) + 1;\n    }\n    \n    // Return the counts object containing the counts of each element\n    return counts;\n}\n\nconst numbers = [1, 2, 2, 3, 1, 4, 2];\nconsole.log(countOccurrences(numbers));"
+  },
+  {
+    "id": 24,
+    "question": "Write a function findMode(arr) that finds the mode (most frequently occurring number) in an array of numbers.",
+    "answer": "// Coding Challenge: Find the Mode in an Array\n\nfunction findMode(arr) {\n    let counts = {};\n    let maxCount = 0;\n    let mode;\n    \n    // Iterate through the array and count occurrences of each element\n    for (let element of arr) {\n        counts[element] = (counts[element] || 0) + 1;\n        \n        // Update mode and maxCount if current element's count is higher\n        if (counts[element] > maxCount) {\n            maxCount = counts[element];\n            mode = element;\n        }\n    }\n    \n    return mode;\n}\n\n// Example usage:\nconsole.log(findMode([1, 2, 2, 3, 1, 1, 1, 1, 1, 4, 21])); // Output: 1\n\n// Constraints:\n// - The input array will always contain at least one element.\n// - The mode will always be unique (i.e., there won't be multiple numbers with the same highest frequency)."
+  },
+  {
+    "id": 25,
+    "question": "Write a function factorial(n) that calculates the factorial of a number using recursion.",
+    "answer": "// Recursion:\n// Recursion is a programming technique where a function calls itself in order to solve a problem. In essence, it's a function that calls itself with smaller or simpler input until it reaches a base case.\n\n// Function to calculate the factorial of a number using recursion\nfunction factorial(n) {\n    // Base case: If n is 0 or 1, return 1 (factorial of 0 and 1 is 1)\n    if (n === 0 || n === 1) {\n        return 1;\n    } else {\n        // Recursive case: If n is greater than 1, recursively call factorial function with n - 1 and multiply it with n\n        return n * factorial(n - 1);\n    }\n}\n\n// Example usage:\nconsole.log(factorial(5)); // Output: 120"
+  },
+  {
+    "id": 26,
+    "question": "Write a function factorial(n) using recursion to calculate the factorial of a number.",
+    "answer": "// Recursion:\n// Recursion is a programming technique where a function calls itself in order to solve a problem. In essence, it's a function that calls itself with smaller or simpler input until it reaches a base case.\n\n// Example usage:\nconsole.log(factorial(5)); // Output: 120\n\n// Function to calculate the factorial of a number using recursion\nfunction factorial(n) {\n    // Base case: If n is 0 or 1, return 1 (factorial of 0 and 1 is 1)\n    if (n === 0 || n === 1) {\n        return 1;\n    } else {\n        // Recursive case: If n is greater than 1, recursively call factorial function with n - 1 and multiply it with n\n        return n * factorial(n - 1);\n    }\n}"
+  },
+  {
+    "id": 27,
+    "question": "Write a function repeatString(str, num) that repeats the input string str the specified number of times num and returns the resulting string.",
+    "answer": "// Coding Challenge: Repeat a String\n\n// Write a function called repeatString that takes two parameters:\n//  str: A string that needs to be repeated.\n//  num: An integer representing the number of times the string should be repeated.\n//  The function should repeat the input string str the specified number of times num and return the resulting string.\n\n// 1st method\nconst repeatString = function (str, num) {\n    let repeat = \"\";\n    const maxLength = str.length * num;\n    for (let i = 0; i < num; i++) {\n        if (repeat.length < maxLength) {\n            repeat += str;\n        } else {\n            break; // Exit loop if the maximum length is reached\n        }\n    }\n    return repeat;\n}\n\n// Example usage:\nconsole.log(repeatString(\"abc\", 5)); // Output: \"abcabcabcabcabc\"\n"
+  },
+  {
+    "id": 28,
+    "question": "Write a function truncateString(str, maxLength) that truncates the input string str if its length exceeds the specified maxLength. If truncation occurs, the function should add '...' to the end of the truncated string.",
+    "answer": "// Coding Challenge: Truncate a String\n\n// Write a function called truncateString that takes two parameters:\n//  str: A string that needs to be truncated.\n//  maxLength: An integer representing the maximum length of the string allowed.\n//  The function should truncate the input string str if its length exceeds the specified maxLength. If truncation occurs, the function should add '...' to the end of the truncated string.\n\nconst truncateString = (str, maxLength) => {\n    if (maxLength <= 0) {\n        return str;\n    }\n    if (str.length > maxLength) {\n        return str.slice(0, maxLength).concat(\"...\");\n    }\n    return str;\n}\n\n// Example usage:\nconsole.log(truncateString(\"A-tisket a-tasket A green and yellow basket\", 8));\n// Output: \"A-tisket...\"\n\n// Constraints:\n// - The input string str will contain only alphanumeric characters and punctuation marks.\n// - The maximum length maxLength will be a positive integer.\n// - The output string length should not exceed maxLength + 3 characters due to the addition of '...'.\n"
+  },
+  {
+    "id": 29,
+    "question": "Write a function numberRange(a, b, arr) that generates an array containing consecutive numbers from a to b (inclusive).",
+    "answer": "// Coding Challenge: Number Range Generator\n\n// Write a function called numberRange that generates an array containing consecutive numbers from a to b (inclusive).\n// Input:\n// a: An integer representing the starting number of the range.\n// b: An integer representing the ending number of the range.\n// arr: An optional parameter representing the array to store the numbers in the range. It defaults to an empty array.\n// Output:\n// An array containing consecutive numbers from a to b (inclusive).\n\nconst numberRange = (a, b, arr = []) => {\n    if (a > b) {\n        return arr;\n    }\n    arr.push(a);\n    return numberRange(a + 1, b, arr);\n};\n\n// Example usage:\nconsole.log(numberRange(0, 5)); // Output: [0, 1, 2, 3, 4, 5]\nconsole.log(numberRange(-2, 2)); // Output: [ -2, -1, 0, 1, 2 ]\n\n// Constraints:\n// - a and b will be integers.\n// - a will be less than or equal to b\n"
+  },
+  {
+    "id": 30,
+    "question": "Write a function numberRangeRecursive(a, b, arr) that generates an array containing consecutive numbers from a to b (inclusive).",
+    "answer": "// Coding Challenge: Number Range Generator Using Recursive function\n\n// Write a function called numberRangeRecursive  that generates an array containing consecutive numbers from a to b (inclusive).\n// Input:\n// a: An integer representing the starting number of the range.\n// b: An integer representing the ending number of the range.\n// arr: An optional parameter representing the array to store the numbers in the range. It defaults to an empty array.\n// Output :\n// An array containing consecutive numbers from a to b (inclusive).\n\nconst numberRangeRecursive = (a, b, arr = []) => {\n   if (a <= b) {\n      arr.push(a);\n      return numberRangeRecursive(a + 1, b, arr);\n   }\n   return arr;\n};\n\n// Example usage:\nconsole.log(numberRangeRecursive(0, 5)); // Output: [0, 1, 2, 3, 4, 5]\nconsole.log(numberRangeRecursive(-2, 2)); // Output: [-2, -1, 0, 1, 2]\n\n// Constraints:\n// - a and b will be integers.\n// - a will be less than or equal to b\n"
+  },
+  {
+    "id": 31,
+    "question": "Write a function simplePasswordValidator(password) that validates a password based on certain criteria.",
+    "answer": "// Coding Challenge: Simple Password Validator\n\n// Write a function called simplePasswordValidator that takes a single parameter:\n// password: A string representing the password to be validated.\n// The function should validate the password based on the following criteria:\n// - The password must contain at least one lowercase letter, one uppercase letter, and one digit.\n// - The length of the password must be at least 8 characters.\n// The function should return true if the password meets all the criteria, otherwise, it should return false.\n\nfunction simplePasswordValidator(password) {\n    // Check if password length is at least 8 characters\n    if (password.length < 8) {\n        return false;\n    }\n\n    // Check if password contains at least one lowercase letter, one uppercase letter, and one digit\n    const hasLowercase = /[a-z]/.test(password);\n    const hasUppercase = /[A-Z]/.test(password);\n    const hasDigit = /[0-9]/.test(password);\n\n    return hasLowercase && hasUppercase && hasDigit;\n}\n\n// Example usage:\nconsole.log(simplePasswordValidator(\"Passw0rd\")); // Output: true\nconsole.log(simplePasswordValidator(\"weak\")); // Output: false\n\n// Constraints:\n// - The input string password will contain only alphanumeric characters and punctuation marks.\n}"
+  },
+  {
+    "id": 32,
+    "question": "Given an array of integers, write a function findPairs that finds all pairs of integers in the array that sum up to a target sum and returns them as an array of arrays.",
+    "answer": "// Given an array of integers, write a function findPairs that takes two arguments: the array of integers and a target sum. The function should find all pairs of integers in the array that sum up to the target sum and return them as an array of arrays.\n\nfunction findPairs(arr, targetSum) {\n    const pairs = [];\n    const seen = new Set();\n  \n    for (let num of arr) {\n      const complement = targetSum - num;\n      if (seen.has(complement)) {\n        pairs.push([num, complement]);\n      }\n      seen.add(num);\n    }\n  \n    return pairs;\n  }\n  \n  // Test the function\n  const arr = [3, 1, 5, 8, 2, 6];\n  const targetSum = 9;\n  console.log(findPairs(arr, targetSum)); // Output: [[3, 6], [1, 8], [5, 4]]\n}",
+    "language": "javascript"
+  },
+  {
+    "id": 33,
+    "question": "Write a function findMissingNumber(arr) that finds the missing number in an array's range.",
+    "answer": "// Given an array containing some numbers write a code to that will find out the missing number in the array’s range ?\n\nfunction findMissingNumber(arr) {\n    // Sort the array\n    arr.sort((a, b) => a - b);\n    \n    // Iterate through the array to find the missing number\n    for (let i = 0; i < arr.length - 1; i++) {\n        if (arr[i + 1] - arr[i] !== 1) {\n            return arr[i] + 1;\n        }\n    }\n    \n    // If no missing number found, return undefined\n    return undefined;\n}\n\n// Example usage:\nconst numbers = [1, 2, 3, 5, 6, 7, 8];\nconsole.log(\"The missing number is:\", findMissingNumber(numbers)); // Output: 4\n\n// Constraints:\n// - The input array will contain consecutive numbers with exactly one missing number.\n// - The missing number will always be between the smallest and largest numbers in the array."
+  },
+  {
+    "id": 34,
+    "question": "Write a function removeDuplicates that removes duplicate elements from an array.",
+    "answer": "// Programming Challenge: Remove Duplicates from an Array\n\n// First Method: RemoveDuplicates\n// const removeDuplicates = (arr) => {\n//  let duplicate = new Set(arr);\n//  return duplicate;\n\n// };\n// Second Method: RemoveDuplicates\n\n// function removeDuplicates(arr) {\n//   let uniqueArray = [];\n//   for(let i = 0; i < arr.length; i++) {\n//     if(uniqueArray.indexOf(arr[i])  === -1){ // -1 not element found\n//         uniqueArray.push(arr[i]);\n//     }\n    \n//   }\n//   return uniqueArray;\n// }\n//Third Method: RemoveDuplicates\n\nconst removeDuplicates = (arr) => {\n    return arr.filter((value,index) => arr.indexOf(value) === index);\n}\n\nconsole.log(removeDuplicates([1, 2, 3, 3, 4, 5, 6]));\nconsole.log(removeDuplicates([\"a\", \"b\", \"c\", \"d\", \"a\"]));\n\n// Constraints:\n// - The input array may contain duplicate elements.\n// - The output array should contain only unique elements, preserving the order of their first occurrence in the input array."
+  },
+  {
+    "id": 35,
+    "question": "Write a function isEmptyObject that checks if an object is empty (has no properties).",
+    "answer": "const isEmptyObject = (obj) => {\n    if (Object.keys(obj).length === 0) {\n        return \"it's empty\";\n    } else {\n        return \"it's not empty\";\n    }\n};\n\nconsole.log(isEmptyObject({ name: \"vinod\" })); // Output: \"it's not empty\"\nconsole.log(isEmptyObject({})); // Output: \"it's empty\"\n\n// Constraints:\n// - The function should return a string indicating whether the object is empty or not based on the number of its keys.\n// - The input will always be an object."
+  },
+  {
+    "id": 36,
+    "question": "Write two functions: objectToArray and arrayToObject to convert between objects and arrays of key-value pairs.",
+    "answer": "// Programming Challenge: Convert Object to Array and Vice Versa\n\n// Convert Object to Array: Write a function objectToArray that takes an object as input and returns an array of key-value pairs.\nconst objectToArray = (obj) => {\n    return Object.entries(obj);\n}\n\n// Convert Array to Object: Write a function arrayToObject that takes an array of key-value pairs and returns a new object.\nconst arrayToObject = (arr) => {\n    return Object.fromEntries(arr);\n}\n\n// Example usage:\nconst obj = {\n    name: \"satyam singh\",\n    age: 22,\n    city: \"mumbai\",\n};\n\nconst entries = objectToArray(obj);\nconst newArray = entries.flat();\nconst newObj = arrayToObject(entries);\n\nconsole.log(entries);\nconsole.log(newArray);\nconsole.log(newObj);\n\n// Constraints:\n// - The input object may contain properties of any data type.\n// - The input array must contain arrays with exactly two elements."
+  },
+  {
+    "id": 37,
+    "question": "Programming Challenge: Simple Interest Calculator",
+    "answer": "// Programming Challenge: Simple Interest Calculator\n\n// Write a function calculateSimpleInterest that calculates the simple interest given the principal amount, rate of interest per annum, and time in years.\n\nconst calculateSimpleInterest = (p,t,r) => {\n    return p * r *  t/100;\n}\n\n\nconsole.log(calculateSimpleInterest (1000, 5, 3)); // Output: 150\n\n// Constraints:\n// - The function should take three parameters: p (principal amount), t (time in years), and r (rate of interest per annum).\n// - The function should return the calculated simple interest based on the formula: p * r * t / 100."
+  },
+  {
+    "id": 38,
+    "question": "Programming Challenge: Number of Days Between Two Dates",
+    "answer": "// Programming Challenge: Number of Days Between Two Dates\n\n// Write a function calculateDaysBetweenDates that calculates the number of days between two dates. The dates will be provided in the format \"YYYY-MM-DD\".\n\nconst calculateDaysBetweenDates = (d1, d2) => {\n    let date1 = new Date(d1);\n    let date2 = new Date(d2);\n    let diff = Math.abs(date2 - date1);\n    return diff / (24 * 60 * 60 * 1000); // Convert milliseconds to days\n}\n\nconsole.log(calculateDaysBetweenDates(\"2024-01-01\", \"2024-01-31\")); // Output: 30\n\n// Constraints:\n// - The function should take two parameters: d1 (first date) and d2 (second date) in the format \"YYYY-MM-DD\".\n// - The function should return the number of days between the two dates as an integer."
+  },
+  {
+    "id": 39,
+    "question": "Programming Challenge: Calculate Age from birthDate",
+    "answer": "// Programming Challenge: Calculate Age from birthDate\n\n// Create a function calculateAge that takes a birthDate as input and returns the current age of the person. The birthDate will be provided in the format \"YYYY-MM-DD\".\n\nconst calculateAge = (birthDate) => {\n    let todayDate = new Date();\n    birthDate = new Date(birthDate);\n\n    // Calculate age\n    let age = todayDate.getFullYear() - birthDate.getFullYear();\n    \n    // Adjust age based on months and days\n    const monthDiff = todayDate.getMonth() - birthDate.getMonth();\n\n    if (monthDiff < 0 || (monthDiff === 0 && todayDate.getDate() < birthDate.getDate())) {\n        age--;\n    }\n    \n    return age;\n};\n\nconsole.log(calculateAge(\"1990-05-15\")); // Output: 33\n\n// Requirements:\n// - Handle leap years and varying numbers of days in each month accurately.\n// - Calculate the age based on the current date in the local time zone.\n// - Return the age in whole years."
+  },
+  {
+    "id": 40,
+    "question": "Programming Challenge: Simple Bar Chart from Array Data",
+    "answer": "// Programming Challenge: Simple Bar Chart from Array Data\n\n// Create a function generateBarChart that takes an array of numbers and generates a simple text-based bar chart.\n\nconst generateBarChart = (arr) =>{\n  const newArr = arr.map((curElem, index) => {\n  let star = \"\";\n    let number = 0;\n    while(number<curElem){\n      star = star + \"*\";\n      number++;\n    }\n    return `${index+1}: ${star}`;\n  });\n  console.log(newArr.join(\"\\n\"));\n};\n\nconsole.log(generateBarChart([5,3,9,2]));\n\n// Example output:\n// 1: *****\n// 2: ***\n// 3: *********\n// 4: **\n\n// Constraints:\n// - The function should generate a bar chart where each element in the array represents the number of asterisks ('*') to display."
+  },
+  {
+    "id": 41,
+    "question": "Programming Challenge: Simple Currency Converter",
+    "answer": "// Programming Challenge: Simple Currency Converter\n\n// Write a function to convert an amount from one currency to another using static exchange rates.\n// Requirements:\n// Write a function named convertCurrency that takes three parameters: amount, fromCurrency, and toCurrency.\n// Use a fixed object to store exchange rates relative to a base currency (e.g., USD).\n// The function should return the converted amount in the target currency.\n// Handle conversion through USD as a base, meaning if converting from GBP to EUR, first convert GBP to USD, then USD to EUR.\n\nconst rates = {\n  USD: 1, // Base currency\n  EUR: 0.9, // 1 USD = 0.9 EUR\n  GBP: 0.8, // 1 USD = 0.8 GBP\n  INR: 82, // 1 USD = 74 INR\n};\n\nconst convertCurrency = (amount, fromCurrency, toCurrency) =>{\n    let amountInUSD = 0;\n    if(fromCurrency !== \"USD\") {\n        amountInUSD = amount / rates[fromCurrency];\n    } else {\n        amountInUSD = amount;\n    }\n\n    let convertAmount = 0;\n    if(toCurrency !== \"USD\") {\n        convertAmount = amountInUSD * rates[toCurrency];\n    } else {\n        convertAmount = amountInUSD;\n    }\n\n    return convertAmount;\n};\n\n// Example usage:\nconsole.log(convertCurrency(100, \"GBP\", \"EUR\")); // Output will depend on the rates provided"
+  },
+  {
+    "id": 42,
+    "question": "Programming Challenge: Validate a Credit Card Number (Luhn Algorithm)",
+    "answer": "// Programming Challenge: Validate a Credit Card Number (Luhn Algorithm)\n\n// Write a function to validate credit card numbers using the Luhn algorithm.\n// Requirements:\n// Write a function named validateCreditCard that takes a credit card number as a string.\n// The function should return true if the number is valid according to the Luhn algorithm, and false otherwise.\n// Ensure the function can handle numbers as strings, which may include spaces and dashes.\n\nconst validateCreditCard = (str) => {\n  // Remove non-digit characters from the string\n  str = str.replace(/\\D/g, \"\");\n\n  // Reverse the digits of the number\n  let revNum = \"\";\n  for (let i = str.length - 1; i >= 0; i--) {\n    revNum = revNum + str[i];\n  }\n\n  // Double every second digit and adjust if greater than 9\n  let sum = revNum\n    .split(\"\")\n    .map((currDigits, index) => {\n      if (index % 2 !== 0) {\n        currDigits = currDigits * 2;\n        if (currDigits > 9) {\n          currDigits = currDigits - 9;\n        }\n      }\n      return Number(currDigits);\n    })\n    .reduce((accum, currElem) => accum + currElem, 0); // Sum all digits\n\n  // Check if the sum modulo 10 is 0\n  return sum % 10 === 0;\n};\n\n// Example usage:\nconsole.log(validateCreditCard(\"4539 1488 0343 6467\")); // Output: true\nconsole.log(validateCreditCard(\"8273 1232 7352 0569\")); // Output: false"
+  },
+  {
+    "id": 43,
+    "question": "Programming Challenge: FizzBuzz Challenge",
+    "answer": "// Programming Challenge: FizzBuzz Challenge\n\n// Write a function fizzbuzz that accepts two numbers, startNum and endNum, as input. The function should return an array containing numbers and specific strings based on the following rules:\n// For each number i in the range from startNum to endNum (both inclusive):\n// If i is divisible by both 3 and 5, include \"FizzBuzz\" in the result.\n// If i is divisible by only 3, include \"Fizz\" in the result.\n// If i is divisible by only 5, include \"Buzz\" in the result.\n// Otherwise, include the number i itself.\n\nconst fizzbuzz = (startNum, endNum) => {\n  const result = [];\n  for (let i = startNum; i <= endNum; i++) {\n    if (i % 3 === 0 && i % 5 === 0) {\n      result.push(\"FizzBuzz\");\n    } else if (i % 3 === 0) {\n      result.push(\"Fizz\");\n    } else if (i % 5 === 0) {\n      result.push(\"Buzz\");\n    } else {\n      result.push(i);\n    }\n  }\n  return result;\n};\n\n// Example 1\nconsole.log(fizzbuzz(1, 15));\n// Output: [1, 2, \"Fizz\", 4, \"Buzz\", \"Fizz\", 7, 8, \"Fizz\", \"Buzz\", 11, \"Fizz\", 13, 14, \"FizzBuzz\"]\n\n// Example 2\nconsole.log(fizzbuzz(12, 20));\n// Output: [\"Fizz\", 13, 14, \"FizzBuzz\", 16, 17, \"Fizz\", 19, \"Buzz\"]"
+  },
+  {
+    "id": 44,
+    "question": "Practice - Email Validation",
+    "answer": "// Practice - Email Validation\n\n// To validate an email, we want to check three main things:\n// 1. Local part: the part before the '@' symbol.\n// 2. Domain: the part after the '@' but before the top-level domain.\n// 3. Top-level domain (TLD): the last part following the last dot.\n\nconst validateEmail = (email) => {\n    return /[a-zA-Z0-9]+(?:[.%_+-][a-zA-Z0-9]+)*@[A-Za-z]+\\.[A-Za-z]{2,}$/.test(email);\n};\n\nconsole.log(validateEmail(\"john.doe@example.com\")); // true\nconsole.log(validateEmail(\"invalid..dotadomain.com\")); // false\nconsole.log(validateEmail(\"missingadotcom\")); // false\nconsole.log(validateEmail(\"no@domain\")); // false"
+  },
+  {
+    "id": 45,
+    "question": "Create a function validatePassword that checks if a given password string meets the following criteria:",
+    "answer": "// Create a function validatePassword that checks if a given password string meets the following criteria:\n// Minimum Length: The password must be at least 8 characters long.\n// Case Requirements: The password must include at least one uppercase letter and at least one lowercase letter.\n// Numerical Requirement: The password must contain at least one digit.\n// Special Character Requirement: The password must have at least one special character from the set !a#$%^g*()-_+=.\n\nconst validatePassword = (password) => {\n    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;\n    return regex.test(password);\n}\n\nconsole.log(validatePassword(\"Abcd123@\")); // Output: true\nconsole.log(validatePassword(\"weakpassword\")); // Output: false"
+  },
+  {
+    "id": 47,
+    "question": "Programming Challenge: Mobile Number Validation",
+    "answer": "// Write a function that takes a string as input and returns true if the string represents a valid Indian mobile number, and false otherwise.\n\nfunction validateIndianMobileNumber(number) {\n    // Regular expression to match Indian mobile numbers\n    var regex = /^[6-9]\\d{9}$/;\n    \n    // Test the input number against the regex\n    return regex.test(number);\n}\n\n// Test Cases\nconsole.log(validateIndianMobileNumber(\"9876543210\")); // Expected output: true\nconsole.log(validateIndianMobileNumber(\"0123456789\")); // Expected output: false\nconsole.log(validateIndianMobileNumber(\"897654321\"));  // Expected output: false\nconsole.log(validateIndianMobileNumber(\"78965432107\")); // Expected output: false"
+  },
+  {
+    "id": 48,
+    "question": "validateHexColor",
+    "answer": "const validateHexColor = (hexColor) => {\n    return /^#([A-Fa-f\\d]{3}|[A-Fa-f\\d]{6})$/.test(hexColor);\n}\n\nconsole.log(validateHexColor(\"#a3c113\")); // Expected output: true\nconsole.log(validateHexColor(\"#fff\")); // Expected output: true\nconsole.log(validateHexColor(\"#1234567\")); // Expected output: false\nconsole.log(validateHexColor(\"a3c113\")); // Expected output: false\nconsole.log(validateHexColor(\"#g3c113\")); // Expected output: false"
+  },
+  {
+    "id": "49",
+    "question": "isValidDate",
+    "answer": "const isValidDate = (date) => {\n    return /^(0[1-9]|1[0-2])\\/(0[1-9]|1\\d|2[0-8])\\/(19|20)\\d{2}$/.test(date);\n}\n\nconsole.log(isValidDate(\"12/15/2021\")); // Expected output: true\nconsole.log(isValidDate(\"02/29/2021\")); // Expected output: false\nconsole.log(isValidDate(\"04/31/2020\")); // Expected output: false\nconsole.log(isValidDate(\"01/01/1800\")); // Expected output: false\nconsole.log(isValidDate(\"13/01/2000\")); // Expected output: false\nconsole.log(isValidDate(\"12/31/2099\")); // Expected output: true"
+  },
+  {
+    "id": "50",
+    "question": "This line declares a variable number and initializes it with the value 0.\n\nconsole.log(number++); //- This line prints the current value of number and then increments it by 1. The number++ operation is a post-increment operation, which means it returns the value before it was incremented. So, 0 is printed to the console, and number is incremented to 1.\n\nconsole.log(++number); // This line increments the value of number by 1 and then prints it. The ++number operation is a pre-increment operation, which means it increments the value before returning it. So, number is incremented to 2, and 2 is printed to the console.\n\nconsole.log(number); //- This line simply prints the current value of number, which is 2.",
+    "answer": "let number = 0;\n\nconsole.log(number++); // Output: 0\nconsole.log(++number); // Output: 2\nconsole.log(number); // Output: 2"
+  },
+  {
+    "id": "51",
+    "question": "Write a function named `findLongestWord` that accepts a sentence as input and returns the longest word in the sentence.",
+    "answer": "function findLongestWord(sentence) {\n    const words = sentence.split(' ');\n    let longestWord = '';\n  \n    for (let i = 0; i < words.length; i++) {\n      if (words[i].length > longestWord.length) {\n        longestWord = words[i];\n      }\n    }\n  \n    return longestWord;\n  }\n  \n  console.log(findLongestWord('The quick brown fox jumps over the lazy dog'));\n  // Output: 'quick'"
+  }
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+  
+  
+  
+  
+  
+  
+   
   
 ]
