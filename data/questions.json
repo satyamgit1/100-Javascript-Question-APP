@@ -290,6 +290,77 @@
   "question": "Write a function threeSum(nums) that takes an array of integers nums and returns all unique triplets [a, b, c] in the array which give the sum of zero.",
   "answer": "function threeSum(nums) {\n    nums.sort((a, b) => a - b); // Sort the array\n    const result = [];\n\n    for (let i = 0; i < nums.length - 2; i++) {\n        if (i > 0 && nums[i] === nums[i - 1]) continue; // Skip duplicates\n\n        let left = i + 1;\n        let right = nums.length - 1;\n\n        while (left < right) {\n            const sum = nums[i] + nums[left] + nums[right];\n\n            if (sum === 0) {\n                result.push([nums[i], nums[left], nums[right]]);\n                while (left < right && nums[left] === nums[left + 1]) left++; // Skip duplicates\n                while (left < right && nums[right] === nums[right - 1]) right--; // Skip duplicates\n                left++;\n                right--;\n            } else if (sum < 0) {\n                left++;\n            } else {\n                right--;\n            }\n        }\n    }\n\n    return result;\n}\n\n// Test cases\nconsole.log(threeSum([-1, 0, 1, 2, -1, -4])); // Output: [[-1, -1, 2], [-1, 0, 1]]\nconsole.log(threeSum([0, 0, 0]));             // Output: [[0, 0, 0]]\nconsole.log(threeSum([1, 2, -2, -1]));        // Output: []"
 },
+{
+  "id": 60,
+  "question": "Write a function isPalindrome(str) that checks if a string is a palindrome.",
+  "answer": "function isPalindrome(str) {\n    // Remove non-alphanumeric characters and convert to lowercase\n    const cleanedStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();\n    \n    // Compare the cleaned string with its reversed version\n    const reversedStr = cleanedStr.split('').reverse().join('');\n    \n    return cleanedStr === reversedStr;\n}\n\n// Example usage:\nconsole.log(isPalindrome(\"A man, a plan, a canal, Panama\")); // Output: true\nconsole.log(isPalindrome(\"racecar\")); // Output: true\nconsole.log(isPalindrome(\"hello\")); // Output: false"
+},
+{
+  "id": 61,
+  "question": "Write a function isAnagram that takes in two strings and returns true if they are anagrams of each other, and false otherwise.",
+  "answer": "function isAnagram(s1, s2) {\n    // Helper function to sort the letters of a string\n    function sortString(str) {\n        return str.split('').sort().join('');\n    }\n\n    // Compare the sorted versions of the strings\n    return sortString(s1) === sortString(s2);\n}\n\n// Test cases\nconsole.log(isAnagram(\"listen\", \"silent\")); // true\nconsole.log(isAnagram(\"hello\", \"world\"));   // false\nconsole.log(isAnagram(\"evil\", \"vile\"));     // true\nconsole.log(isAnagram(\"fluster\", \"restful\")); // true\nconsole.log(isAnagram(\"dormitory\", \"dirtyroom\")); // true\nconsole.log(isAnagram(\"conversation\", \"voicesranton\")); // true\nconsole.log(isAnagram(\"conversation\", \"voicesrando\")); // false"
+},
+{
+  "id": 62,
+  "question": "Write a function called delay that returns a Promise which resolves after a specified number of milliseconds.",
+  "answer": "function delay(milliseconds) {\n    return new Promise((resolve) => {\n      setTimeout(resolve, milliseconds);\n    });\n}\n\n// Test the function\n// This will print 'Executed after 2 seconds' after 2 seconds\n// Adjust the delay time as needed to test\n\n// Example usage:\ndelay(2000).then(() => {\n    console.log('Executed after 2 seconds');\n});"
+},
+{
+  "id": 63,
+  "question": "Implement merge sort for an array of integers.",
+  "answer": "function mergeSort(arr) {\n    // Base case: arrays with fewer than 2 elements are already sorted\n    if (arr.length <= 1) {\n      return arr;\n    }\n\n    // Split the array into two halves\n    const mid = Math.floor(arr.length / 2);\n    const left = arr.slice(0, mid);\n    const right = arr.slice(mid);\n\n    // Recursively sort each half\n    return merge(mergeSort(left), mergeSort(right));\n}\n\nfunction merge(left, right) {\n    const result = [];\n    let leftIndex = 0;\n    let rightIndex = 0;\n\n    // Compare the elements of both halves and merge them in sorted order\n    while (leftIndex < left.length && rightIndex < right.length) {\n      if (left[leftIndex] < right[rightIndex]) {\n        result.push(left[leftIndex]);\n        leftIndex++;\n      } else {\n        result.push(right[rightIndex]);\n        rightIndex++;\n      }\n    }\n\n    // Concatenate any remaining elements (one of the halves may have elements left)\n    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));\n}\n\n// Test the function\nconst array = [38, 27, 43, 3, 9, 82, 10];\nconst sortedArray = mergeSort(array);\nconsole.log(sortedArray); // Output: [3, 9, 10, 27, 38, 43, 82]"
+},
+{
+  "id": 64,
+  "question": "Write a function to find the longest word in a sentence.",
+  "answer": "function findLongestWord(sentence) {\n  const words = sentence.split(' ');\n  let longestWord = '';\n  for (let i = 0; i < words.length; i++) {\n    if (words[i].length > longestWord.length) {\n      longestWord = words[i];\n    }\n  }\n  return longestWord;\n}\n\nconsole.log(findLongestWord('The quick brown fox jumps over the lazy dog'));\n// Output: 'quick'"
+},
+{
+  "id": 65,
+  "question": "Make alternate characters uppercase in a string.",
+  "answer": "function alternateText(str){\n  var char = str.toLowerCase().split('')\n      for(var i=0; i <char.length; i=i+2){\n         char[i]=char[i].toUpperCase()\n      }\n  return char.join('')\n}\nconsole.log(alternateText(\"Priya Bagde\")) //\"PrIyA BaGdE\"\n// OR\nlet alt = \"Priya Bagde\"\nalt = alt.split(\"\")\n  .map((letter,index)=>(index%2)==0 ? letter.toUpperCase(): letter.toLowerCase())\n  .join(\"\")\nconsole.log(alt) //\"PrIyA BaGdE\""
+},
+{
+  "id": 66,
+  "question": "Implement enqueue and dequeue using only two stacks.",
+  "answer": "// Enqueue operation: push item into the input stack\nvar inputStack = []; // First stack\nfunction enqueue(stackInput, item) {\n    return stackInput.push(item);\n}\n\n// Dequeue operation: pop from the output stack\nvar outputStack = []; // Second stack\nfunction dequeue(stackInput, stackOutput) {\n    // Reverse the stack to prepare for dequeue\n    if (stackOutput.length <= 0) {\n        while (stackInput.length > 0) {\n            var elementToOutput = stackInput.pop();\n            stackOutput.push(elementToOutput);\n        }\n    }\n    // Pop from the output stack\n    return stackOutput.pop();\n}"
+},
+{
+  "id": "67",
+  "question": "Find the missing number from unsorted array with O(n) complexity.",
+  "answer": "let ar = [2, 7, 8, 5, 1, 4, 3, 6];\n\nfunction missing(a) {\n    let n = a.length;\n    let sum = 1;\n    for (let i = 2; i <= (n + 1); i++) {\n        sum += i;\n        sum -= a[i - 2];\n    }\n    return sum;\n}\n\nconsole.log(missing(ar)); // Output: 9"
+},
+{
+  "id": "68",
+  "question": "Write a code for Merge Sort function",
+  "answer": "function mergeSort(arr) {\n    // If the array has less than two elements, it's already sorted\n    if (arr.length <= 1) {\n        return arr;\n    }\n\n    // Find the middle point of the array to divide it into two halves\n    const mid = Math.floor(arr.length / 2);\n\n    // Recursively divide the array into two halves\n    const left = mergeSort(arr.slice(0, mid));\n    const right = mergeSort(arr.slice(mid));\n\n    // Merge the two sorted halves\n    return merge(left, right);\n}\n\n// Helper function to merge two sorted arrays\nfunction merge(left, right) {\n    const result = [];\n    let leftIndex = 0;\n    let rightIndex = 0;\n\n    // Compare the elements of both arrays and push the smaller element to the result array\n    while (leftIndex < left.length && rightIndex < right.length) {\n        if (left[leftIndex] < right[rightIndex]) {\n            result.push(left[leftIndex]);\n            leftIndex++; // Move to the next element in the left array\n        } else {\n            result.push(right[rightIndex]);\n            rightIndex++; // Move to the next element in the right array\n        }\n    }\n\n    // If there are remaining elements in the left array, add them to the result\n    while (leftIndex < left.length) {\n        result.push(left[leftIndex]);\n        leftIndex++;\n    }\n\n    // If there are remaining elements in the right array, add them to the result\n    while (rightIndex < right.length) {\n        result.push(right[rightIndex]);\n        rightIndex++;\n    }\n\n    // Return the merged and sorted array\n    return result;\n}\n\n// Example usage:\nconst array = [38, 27, 43, 3, 9, 82, 10];\nconst sortedArray = mergeSort(array);\nconsole.log(sortedArray); // Output: [3, 9, 10, 27, 38, 43, 82]"
+},
+{
+  "id": "69",
+  "question": "Given two arrays of numbers (define arrays), find all the numbers that occur in both the first and the second arrays. Print them in ascending order.",
+  "answer": "const array1 = [1, 2, 3, 4, 5];\n const array2 = [4, 5, 6, 7, 8];\n const commonNumbers = array1.filter(num => array2.includes(num)).sort((a, b) => a - b);\n console.log(commonNumbers); // Output: [4, 5]"
+},
+{
+  "id": "70",
+  "question": " Write a code to Implement Stack.",
+  "answer": "// Implement Stack \nclass Stack {\n    constructor() {\n        this.items = [];\n    }\n\n    push(element) {\n        this.items.push(element);\n    }\n\n    pop() {\n        if (this.isEmpty()) {\n            return 'Underflow';\n        }\n        return this.items.pop();\n    }\n\n    peek() {\n        if (this.isEmpty()) {\n            return 'No elements in the stack';\n        }\n        return this.items[this.items.length - 1];\n    }\n\n    isEmpty() {\n        return this.items.length === 0;\n    }\n\n    size() {\n        return this.items.length;\n    }\n\n    printStack() {\n        let str = '';\n        for (let i = 0; i < this.items.length; i++) {\n            str += this.items[i] + ' ';\n        }\n        return str;\n    }\n}\n\n// Example usage:\nconst stack = new Stack();\nstack.push(10);\nstack.push(20);\nstack.push(30);\nconsole.log(stack.printStack()); // Output: 10 20 30\nconsole.log(stack.peek()); // Output: 30\nconsole.log(stack.pop()); // Output: 30\nconsole.log(stack.printStack()); // Output: 10 20\nconsole.log(stack.size()); // Output: 2\nconsole.log(stack.isEmpty()); // Output: false"
+},
+{
+  "id": "71",
+  "question": "Generate Fibonacci series up to a specified number and calculate their sum.",
+  "answer": "// generates the Fibonacci series up to a specified number and calculates their sum:\nfunction fibonacciSeries(n) {\n    let fibSeries = [0, 1];\n    let sum = 1; // Sum starts with 1 because the series starts with 0, 1\n\n    for (let i = 2; i <= n; i++) {\n        fibSeries[i] = fibSeries[i - 1] + fibSeries[i - 2];\n        sum += fibSeries[i];\n    }\n\n    return { series: fibSeries, sum: sum };\n}\n\n// Example usage:\nconst n = 10; // Change this number to generate Fibonacci series up to n\nconst result = fibonacciSeries(n);\n\nconsole.log(`Fibonacci Series up to ${n}:`);\nconsole.log(result.series);\nconsole.log(`Sum of Fibonacci Series up to ${n}: ${result.sum}`);"
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
