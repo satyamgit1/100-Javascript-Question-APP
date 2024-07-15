@@ -6,7 +6,6 @@ import SparklesText from "../components/magicui/SparklesText"; // Adjust the pat
 import { motion } from "framer-motion";
 import { LampContainer } from "../components/ui/lamp";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data", "questions.json");
@@ -14,7 +13,6 @@ export async function getStaticProps() {
   const questions = JSON.parse(jsonData);
 
   return {
-  
     props: {
       questions,
     },
@@ -24,7 +22,7 @@ export async function getStaticProps() {
 const Home = ({ questions }) => {
   return (
     <div>
-    <Navbar />
+      <Navbar />
       <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
@@ -34,16 +32,24 @@ const Home = ({ questions }) => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl"
         >
-          Javascript Questions <br /> by Satyam Singh
+          Javascript Questions <br /> by Satyam Singh <br />
+          <a
+            href="#questions"
+            className="text-sm text-green-500 hover:underline cursor-pointer"
+          >
+            Scroll down for Questions
+          </a>
         </motion.h1>
       </LampContainer>
       <SparklesText
         text="JavaScript Coding Questions"
-        className="text-center text-4xl mb-8"
+        className="text-center text-3xl md:text-4xl mb-8"
       />
-      <Questions questions={questions} />
+      <div id="questions">
+        <Questions questions={questions} />
+      </div>
     </div>
   );
 };
