@@ -5,7 +5,7 @@ export default function Footer() {
     <div>
       <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
         <nav className="grid grid-flow-col gap-4">
-          <a 
+          <a
             className="link link-hover"
             href="https://www.satyamsingh.site/about"
             target="_blank"
@@ -24,8 +24,11 @@ export default function Footer() {
         </nav>
         <nav>
           <div className="grid grid-flow-col gap-4">
-          <a href="https://www.linkedin.com/in/satyam-singh01/" target="_blank" rel="noopener noreferrer">
-
+            <a
+              href="https://www.linkedin.com/in/satyam-singh01/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -105,9 +108,12 @@ export default function Footer() {
                   d="M50,57H14c-3.859,0-7-3.141-7-7V14c0-3.859,3.141-7,7-7h36c3.859,0,7,3.141,7,7v36 C57,53.859,53.859,57,50,57z M14,9c-2.757,0-5,2.243-5,5v36c0,2.757,2.243,5,5,5h36c2.757,0,5-2.243,5-5V14c0-2.757-2.243-5-5-5H14z"
                 ></path>
               </svg>
-              
             </a>
-            <a href="mailto:satyamsingh2003a@gmail.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="mailto:satyamsingh2003a@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -163,8 +169,12 @@ export default function Footer() {
                 ></path>
               </svg>
             </a>
-            <a href="https://github.com/satyamgit1/" target="_blank" rel="noopener noreferrer">
-              <svg 
+            <a
+              href="https://github.com/satyamgit1/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
