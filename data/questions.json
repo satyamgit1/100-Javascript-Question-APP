@@ -247,9 +247,61 @@
   },
   {
     "id": "51",
+    "question": "Write a Code for Promise",
+    "answer": "const firstPromise = new Promise((res, rej) => {\n    setTimeout(res, 500, \"one\");\n  });\n  \n  const secondPromise = new Promise((res, rej) => {\n    setTimeout(res, 100, \"two\");\n  });\n  \n  Promise.race([firstPromise, secondPromise]).then(res => console.log(res));"
+  },
+  {
+    "id": "52",
     "question": "Write a function named `findLongestWord` that accepts a sentence as input and returns the longest word in the sentence.",
     "answer": "function findLongestWord(sentence) {\n    const words = sentence.split(' ');\n    let longestWord = '';\n  \n    for (let i = 0; i < words.length; i++) {\n      if (words[i].length > longestWord.length) {\n        longestWord = words[i];\n      }\n    }\n  \n    return longestWord;\n  }\n  \n  console.log(findLongestWord('The quick brown fox jumps over the lazy dog'));\n  // Output: 'quick'"
-  }
+  },
+  {
+    "id": "53",
+    "question": "What are the values of num1 and num2 after executing the code?",
+    "answer": "num1 will be 10 because increaseNumber() returns the current value of num (10) before incrementing it. num2 will be 10 because increasePassedNumber(num1) increments the value of number (which is 10) locally within the function but does not affect num1."
+  },
+  {
+    "id": "54",
+    "question": "What will be the output of the code snippet?",
+    "answer": "The code snippet will throw an error because colorChange is a static method defined on the Chameleon class, and it cannot be called on an instance of the class (like freddie). Static methods are called on the class itself (Chameleon.colorChange(\"orange\")), not on instances."
+  },
+{
+  "id": "55",
+  "question": "How can you access the value of a property in an object?",
+  "answer": "You can access the value of a property in an object by using dot notation or bracket notation. With dot notation, you use the object name followed by a dot and the property name (e.g., `objectName.propertyName`). With bracket notation, you use the object name followed by square brackets and the property name as a string (e.g., `objectName['propertyName']`). Both methods will return the value of the specified property."
+},
+{
+  "id": 56,
+  "question": "Write a function to findMissingNumber",
+  "answer": "function findMissingNumber(arr) {\n    const n = arr.length + 1;\n    const sum = (n * (n + 1)) / 2;\n    const arrSum = arr.reduce((acc, curr) => acc + curr, 0);\n  \n    return sum - arrSum;\n}\n\nconsole.log(findMissingNumber([1, 2, 3, 5])); // Output: 4"
+},
+{
+  "id": 57,
+  "question": "Given two strings, return true if they are anagrams of one another",
+  "answer": "var firstWord = \"Mary\";\nvar secondWord = \"Army\";\nisAnagram(firstWord, secondWord); // true\nfunction isAnagram(first, second) {\n    // For case insensitivity, change both words to lowercase.\n    var a = first.toLowerCase();\n    var b = second.toLowerCase();\n    // Sort the strings, and join the resulting array to a string. Compare the results\n    a = a.split(\"\").sort().join(\"\");\n    b = b.split(\"\").sort().join(\"\");\n    return a == b;\n}\nconsole.log(isAnagram(\"Mary\", \"Army\"));"
+},
+{
+  "id": 58,
+  "question": "Explanation of closure",
+  "answer": "function foo() { \n    let b = 1; \n    function inner() { \n        return b; \n    } \n    return inner; \n} \nlet get_func_inner = foo(); \n\nconsole.log(get_func_inner()); \nconsole.log(get_func_inner()); \nconsole.log(get_func_inner());"
+},
+{
+  "id": 14,
+  "question": "Write a function threeSum(nums) that takes an array of integers nums and returns all unique triplets [a, b, c] in the array which give the sum of zero.",
+  "answer": "function threeSum(nums) {\n    nums.sort((a, b) => a - b); // Sort the array\n    const result = [];\n\n    for (let i = 0; i < nums.length - 2; i++) {\n        if (i > 0 && nums[i] === nums[i - 1]) continue; // Skip duplicates\n\n        let left = i + 1;\n        let right = nums.length - 1;\n\n        while (left < right) {\n            const sum = nums[i] + nums[left] + nums[right];\n\n            if (sum === 0) {\n                result.push([nums[i], nums[left], nums[right]]);\n                while (left < right && nums[left] === nums[left + 1]) left++; // Skip duplicates\n                while (left < right && nums[right] === nums[right - 1]) right--; // Skip duplicates\n                left++;\n                right--;\n            } else if (sum < 0) {\n                left++;\n            } else {\n                right--;\n            }\n        }\n    }\n\n    return result;\n}\n\n// Test cases\nconsole.log(threeSum([-1, 0, 1, 2, -1, -4])); // Output: [[-1, -1, 2], [-1, 0, 1]]\nconsole.log(threeSum([0, 0, 0]));             // Output: [[0, 0, 0]]\nconsole.log(threeSum([1, 2, -2, -1]));        // Output: []"
+}
+
+
+
+
+  
+  
+  
+  
+
+  
+
+
   
   
 
