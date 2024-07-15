@@ -37,9 +37,9 @@ const Home = ({ questions }) => {
           Javascript Questions <br /> by Satyam Singh <br />
           <a
             href="#questions"
-            className="text-sm text-green-500 hover:underline cursor-pointer"
+            className="text-xl text-green-500 hover:underline cursor-pointer"
           >
-            Scroll down for Questions
+            Scroll down for Questions &nbsp; ⬇️
           </a>
         </motion.h1>
       </LampContainer>
