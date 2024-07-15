@@ -286,10 +286,11 @@
   "answer": "function foo() { \n    let b = 1; \n    function inner() { \n        return b; \n    } \n    return inner; \n} \nlet get_func_inner = foo(); \n\nconsole.log(get_func_inner()); \nconsole.log(get_func_inner()); \nconsole.log(get_func_inner());"
 },
 {
-  "id": 14,
+  "id": 59,
   "question": "Write a function threeSum(nums) that takes an array of integers nums and returns all unique triplets [a, b, c] in the array which give the sum of zero.",
   "answer": "function threeSum(nums) {\n    nums.sort((a, b) => a - b); // Sort the array\n    const result = [];\n\n    for (let i = 0; i < nums.length - 2; i++) {\n        if (i > 0 && nums[i] === nums[i - 1]) continue; // Skip duplicates\n\n        let left = i + 1;\n        let right = nums.length - 1;\n\n        while (left < right) {\n            const sum = nums[i] + nums[left] + nums[right];\n\n            if (sum === 0) {\n                result.push([nums[i], nums[left], nums[right]]);\n                while (left < right && nums[left] === nums[left + 1]) left++; // Skip duplicates\n                while (left < right && nums[right] === nums[right - 1]) right--; // Skip duplicates\n                left++;\n                right--;\n            } else if (sum < 0) {\n                left++;\n            } else {\n                right--;\n            }\n        }\n    }\n\n    return result;\n}\n\n// Test cases\nconsole.log(threeSum([-1, 0, 1, 2, -1, -4])); // Output: [[-1, -1, 2], [-1, 0, 1]]\nconsole.log(threeSum([0, 0, 0]));             // Output: [[0, 0, 0]]\nconsole.log(threeSum([1, 2, -2, -1]));        // Output: []"
-}
+},
+
 
 
 
