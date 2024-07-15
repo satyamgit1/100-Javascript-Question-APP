@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import SparklesText from './magicui/SparklesText'; // Adjust the path as per your project structure
+import Footer from './Footer';
 
 const Questions = ({ questions }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const questionsPerPage = 10;
+  const questionsPerPage = 15;
 
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
@@ -16,6 +17,9 @@ const Questions = ({ questions }) => {
   };
 
   return (
+    <div>
+
+  
     <div className="container">
       <SparklesText text="By Satyam" className="text-center text-4xl mb-8" />
       <ol>
@@ -47,6 +51,9 @@ const Questions = ({ questions }) => {
           ))}
         </div>
       </div>
+      
+    </div>
+    <Footer />
     </div>
   );
 };
