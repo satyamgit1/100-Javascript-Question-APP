@@ -474,7 +474,13 @@
   "id": "96",
   "question": "You are given an array of objects representing a list of books in a library. Each book object contains the following properties: title (string), author (string), year (number), checkedOut (boolean). Your task is to write a function getCheckedOutBooksByAuthor(library, author) that takes in the library array and an author's name. The function should return an array of book titles by the given author that are currently checked out.",
   "answer": "function getCheckedOutBooksByAuthor(library, author) {\n    return library\n      .filter(book => book.author === author && book.checkedOut)\n      .map(book => book.title);\n  }\n  \n  // Example usage:\n  const library = [\n    { title: \"The Great Gatsby\", author: \"F. Scott Fitzgerald\", year: 1925, checkedOut: true },\n    { title: \"To Kill a Mockingbird\", author: \"Harper Lee\", year: 1960, checkedOut: false },\n    { title: \"1984\", author: \"George Orwell\", year: 1949, checkedOut: true },\n    { title: \"Animal Farm\", author: \"George Orwell\", year: 1945, checkedOut: true },\n    { title: \"The Catcher in the Rye\", author: \"J.D. Salinger\", year: 1951, checkedOut: false },\n    { title: \"Brave New World\", author: \"Aldous Huxley\", year: 1932, checkedOut: true }\n  ];\n  \n  console.log(getCheckedOutBooksByAuthor(library, \"George Orwell\"));\n  // Output: [\"1984\", \"Animal Farm\"]"
+},
+{
+  "id": "97",
+  "question": "Write a code to implement higher-order function. A higher-order function in JavaScript is a function that either takes one or more functions as arguments or returns a function as its result. In other words, it operates on functions, either by taking them as arguments, returning them, or both.",
+  "answer": "function operationOnArray(arr, operation) {\n    let result = [];\n    for (let element of arr) {\n      result.push(operation(element));\n    }\n    return result;\n  }\n  \n  function double(x) {\n    return x * 2;\n  }\n  \n  let numbers = [1, 2, 3, 4];\n  let doubledNumbers = operationOnArray(numbers, double);\n  console.log(doubledNumbers); // Output: [2, 4, 6, 8]"
 }
+
 
 
 
