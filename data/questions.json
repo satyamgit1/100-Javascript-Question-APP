@@ -484,7 +484,13 @@
   "id": "98",
   "question": "Given an array of integers, find the largest product yielded from three of the integers.",
   "answer": "function findLargestProduct(arr) {\n    if (arr.length < 3) {\n        return \"Array should have at least 3 integers\";\n    }\n\n    arr.sort((a, b) => a - b); // Sort the array in ascending order\n\n    const n = arr.length;\n    const product1 = arr[n - 1] * arr[n - 2] * arr[n - 3]; // Product of the three largest integers\n    const product2 = arr[0] * arr[1] * arr[n - 1]; // Product of the two smallest integers and the largest integer\n\n    return Math.max(product1, product2);\n}\n\nconst numbers = [1, 2, 3, 4, 5];\nconst largestProduct = findLargestProduct(numbers);\nconsole.log(largestProduct); // Output: 60"
+},
+{
+  "id": "99",
+  "description": "Write a JavaScript code for adding new elements dynamically.",
+  "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>Document</title>\n</head>\n\n<body>\n    <button onclick=\"create()\">\n        Click Here!\n    </button>\n\n    <script>\n        function create() {\n            let geeks = document.createElement('geeks');\n            geeks.textContent = \"Geeksforgeeks\";\n            geeks.setAttribute('class', 'note');\n            document.body.appendChild(geeks);\n        }\n    </script>\n</body>\n</html>"
 }
+
 
 
 
