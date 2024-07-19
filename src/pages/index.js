@@ -5,7 +5,6 @@ import path from "path";
 import SparklesText from "../components/magicui/SparklesText"; // Adjust the path as per your project structure
 import { motion } from "framer-motion";
 import { LampContainer } from "../components/ui/lamp";
-import Navbar from "@/components/Navbar";
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data", "questions.json");
@@ -22,7 +21,7 @@ export async function getStaticProps() {
 const Home = ({ questions }) => {
   return (
     <div>
-      <Navbar />
+    
       <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
