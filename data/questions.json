@@ -492,8 +492,8 @@
 },
 {
   "id": "100",
-  "description": "Find the employee who worked on the task with the longest duration.",
-  "code": "function hardestWorker(n, logs) {\n    let maxDuration = 0;\n    let employeeId = Infinity;\n\n    for (let i = 0; i < logs.length; i++) {\n        let duration = (i === 0) ? logs[i][1] : logs[i][1] - logs[i - 1][1];\n        if (duration > maxDuration) {\n            maxDuration = duration;\n            employeeId = logs[i][0];\n        } else if (duration === maxDuration && logs[i][0] < employeeId) {\n            employeeId = logs[i][0];\n        }\n    }\n\n    return employeeId;\n}\n\n// Example usage:\nconst logs = [[0,3],[2,5],[0,9],[1,15]];\nconsole.log(hardestWorker(4, logs)); // Output: 1"
+  "question": "Find the employee who worked on the task with the longest duration.",
+  "answer": "function hardestWorker(n, logs) {\n    let maxDuration = 0;\n    let employeeId = Infinity;\n\n    for (let i = 0; i < logs.length; i++) {\n        let duration = (i === 0) ? logs[i][1] : logs[i][1] - logs[i - 1][1];\n        if (duration > maxDuration) {\n            maxDuration = duration;\n            employeeId = logs[i][0];\n        } else if (duration === maxDuration && logs[i][0] < employeeId) {\n            employeeId = logs[i][0];\n        }\n    }\n\n    return employeeId;\n}\n\n// Example usage:\nconst logs = [[0,3],[2,5],[0,9],[1,15]];\nconsole.log(hardestWorker(4, logs)); // Output: 1"
 }
 
 
