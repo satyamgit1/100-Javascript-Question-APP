@@ -5,9 +5,9 @@
     "answer": "You are required to implement a function generateHash that generates a hash tag from a given input string. The hash tag should be constructed as follows:\n\nThe input string should be converted to a hash tag format, where each word is capitalized and concatenated together without spaces.\nIf the length of the input string is greater than 280 characters or if the input string is empty or contains only whitespace, the function should return false.\nOtherwise, the function should return the generated hash tag prefixed with #.\n\nconst generateHash = (str) => {\n  if (str.length > 280 || str.trim().length === 0) {\n    return false;\n  }\n\n  str = str.split(\" \");\n  str = str.map((currElement) => currElement.replace(currElement[0], currElement[0].toUpperCase()));\n  str = `#${str.join(\"\")}`;\n  return str;\n};\n\nconsole.log(generateHash(\"my name is Satyam Singh\"));"
   },
   {
-    "id": 2,
-    "question": "Explain closures in JavaScript.",
-    "answer": "A closure is the combination of a function and the lexical environment within which that function was declared."
+    "id": "2",
+    "question": "Check if a given array of integers represents a valid mountain array.",
+    "answer": "function isValidMountainArray(arr) {\n    const n = arr.length;\n    if (n < 3) return false;\n\n    let i = 0;\n\n    // Walk up\n    while (i + 1 < n && arr[i] < arr[i + 1]) {\n        i++;\n    }\n\n    // Peak can't be first or last\n    if (i === 0 || i === n - 1) return false;\n\n    // Walk down\n    while (i + 1 < n && arr[i] > arr[i + 1]) {\n        i++;\n    }\n\n    return i === n - 1;\n}\n\n// Example usage\nconst arr1 = [2, 1];\nconst arr2 = [3, 5, 5];\nconst arr3 = [0, 3, 2, 1];\n\nconsole.log(isValidMountainArray(arr1)); // Output: false\nconsole.log(isValidMountainArray(arr2)); // Output: false\nconsole.log(isValidMountainArray(arr3)); // Output: true"
   },
   {
     "id": 3,
